@@ -30,8 +30,9 @@ if (empty($_GET['filename'])) {
     $filename = explode('/',$_GET['filename']);
 
     // File name could be the name of a category
-    if($filename[count($filename) - 2] == "category") {
-        $category = $filename[count($filename) - 1];
+    $second_last = count($filename) - 2;
+    if(($second_last >= 0) && $filename[$second_last] == "category") {
+        $category = $filename[$second_last +  1];
         $filename = null;
     } else {
       
